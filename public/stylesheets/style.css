@@ -1,0 +1,89 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+input, select {
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+}
+.warning {
+  text-align: center;
+  color: red;
+}
+#parent {
+  display: none;
+}
+#addCompany {
+  display: none;
+  width: 100%;
+  text-align: center
+}
+.btn {
+  width: 100px;
+  background-color: #00B7FF;
+  height: 29px;
+  border-radius: 5px;
+  border: 1px solid #00B7FF;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: blue;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.del, .edit {
+  cursor: pointer;
+}
+.del:hover, .edit:hover {
+  color: blue;
+}
+#cancel:hover {
+  background-color: darkred;
+  border:1px solid darkred;
+}
+#addGet, #getTree {
+  margin: 25px 0;
+}
+#getTree {
+  float: right;
+}
+#edit {
+  display: none;
+  width: 300px;
+  margin: 40px auto;
+}
+#edit button {
+  margin-right: 5px;
+  margin-top: 10px;
+}
+#edit .edit {
+  margin-left: 43px;
+}
+#edit p {
+  margin-bottom: 10px;
+}
+#edit .edit:hover {
+  color: inherit;
+}
+#edit input {
+  float: right;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Company</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <p class="warning">If the table didn't refreshed please refresh the page.</p>
+  <div id="addCompany">
+    <form action="/addCompany" method="post">
+      <input type="text" placeholder="Name" name="name" required>
+      <input type="number" placeholder="Capital" name="capital" required>
+      <select name="type" id="type">
+        <option value="Main">Main company</option>
+        <option value="Subsidiary">Subsidiary company</option>
+      </select>
+      <select name="parent" id="parent"></select>
+      <button type="submit" class="btn">Add</button>
+    </form>
+  </div>
+  <button id="addGet" class="btn">Add company</button>
+  <button type="button" class="btn" id="getTree">Get a tree</button>
+  <% if(company.length > 0) {%>
+  <div id="company">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Childs</th>
+        <th>Parent</th>
+        <th>Capital</th>
+        <th>Additional capital</th>
+        <th>Total</th>
+        <th>Edit</th>
+      </tr>
+      <%for(var i=0; i < company.length; i++) {%>
+      <tr><td><%= company[i].name %></td><td><%= company[i].type %></td>
+        <td><% for(var j=0; j< company[i].childs.length; j++ ) {%><%=company[i].childs[j] %> <%}%></td><td><%= company[i].parent %></td><td><%= company[i].capital %></td>
+      <td><%= company[i].additionalCapital %></td><td><%= company[i].together %></td><td><span class="del <%= company[i].type %>" data-href="/delete/<%= company[i].type %>/<%= company[i].name %>">Delete</span>
+          <span class="edit" data-href="/edit/<%= company[i].name %>/<%= company[i].capital %>">Edit</span></td></tr>
+      <%}%>
+    </table>
+  </div>
+  <%}%>
+  <div id="edit">
+    <form action="" method="post" id="editPost">
+      <p>Type: <input type="text" name="type" readonly></p>
+      <p>Name: <input type="text" name="name"></p>
+      <p>Capital: <input type="number" name="capital"></p>
+      <button type="submit" class="btn edit">Edit</button>
+      <button type="button" id="cancel" class="btn">Cancel</button>
+    </form>
+  </div>
+  <div id="tree"></div>
+  <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+  <script src="javascripts/main.js"></script>
+  </body>
+</html>
